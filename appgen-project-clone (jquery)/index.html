@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--import-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="js/jquery-ui-1.13.2/jquery-ui.css">
+    <link rel="stylesheet" href="css/styl.css" ?v=2>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon-32x32.png">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui-1.13.2/jquery-ui.js"></script>
+    <script src="js/js.js"></script>
+
+    <!--Title name-->
+    <title>App-Studio</title>
+
+</head>
+
+<body onload="StartPage()">
+
+
+    <div class="main-grid-container">
+
+        <!--Nav Bar-->
+        <div class="main-nav main-header1">
+            <ul>
+                <li><a class="no-hover"><span class="fas fa-code codeB"></span></a></li>
+                <li><a href="#CloudWizard">CloudWizard</a></li>
+                <li><a class="no-hover">|</a></li>
+                <li><a href="#AppStudio">AppStudio</a></li>
+            </ul>
+        </div>
+
+        <!--Nav bar 2-->
+        <div class="main-nav-2 main-header2">
+            <ul class="main-nav-2 ul-first" id="menu">
+                <li class="parent"><a href="#File">File</a>
+                    <ul class="child">
+                        <li class="parent"><a href="#">New<span class="expand"><i class='fas fa-caret-right'></i></span></a>
+                            <ul class="child ul-third">
+                                <li><a onclick="app2click()" href="#" id="open-plus-dialog2">App</a></li>
+                                <li class="no-hover"><a href="#" class="disable" aria-disabled="true">Module</a></li>
+                                <li class="no-hover"><a href="#" class="disable" aria-disabled="true">Group</a></li>
+                                <li class="no-hover"><a href="#" class="disable" aria-disabled="true">View</a></li>
+                                <li class="no-hover"><a href="#" class="disable" aria-disabled="true">Field</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="no-hover"><a href="#" class="disable" aria-disabled="true">Save</a></li>
+                        <li class="no-hover"><a href="#" class="disable" aria-disabled="true">Export</a></li>
+
+                        <li class="parent"><a href="#">Import<span class="expand"><i class='fas fa-caret-right'></i></span></a>
+                            <ul class="child ul-third">
+                                <li><a id="open-yaml-dialog" href="#">YAML</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="no-hover"><a href="#" class="disable" aria-disabled="true">Properties</a></li>
+                        <li><a href="#">Refresh</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+                <li><a href="#Edit">Edit</a></li>
+                <li><a href="#Code">Code</a></li>
+                <li><a href="#Help">Help</a></li>
+            </ul>
+        </div>
+
+        <div class="dialog2" id="wrapper-yaml-dialog">
+            <button class="import-btn no-border"><i class="far fa-copy"></i>import</button>
+            <div class="dialog2-content"></div>
+        </div>
+
+        <!--Nav Bar 3-->
+        <div class="main-nav main-header3">
+            <ul>
+                <li><a class="hvr-plus plus-container"><button class="no-border plus fas fa-plus" id="btn01Add"
+                            title="add app" onclick="DropDownFuncAdd()"></button></a></li>
+                <div id="add-app-dropdown" class="dropdown-plus-content">
+                    <a href="#" id="open-plus-dialog">App</a>
+                    <a href="#" class="disable" aria-disabled="true">Module</a>
+                    <a href="#" class="disable" aria-disabled="true">Group</a>
+                    <a href="#" class="disable" aria-disabled="true">View</a>
+                    <a href="#" class="disable" aria-disabled="true">Field</a>
+                </div>
+                <li><a class="repeat"><span class="fas fa-repeat"></span></a></li>
+                <li><a class="no-hover"><span class="opacity-50">|</span></a></li>
+                <div>
+                    <li><a><span class="fas fa-save"></span></a></li>
+                    <li><a><span class="fas fa-list"></span></a></li>
+                </div>
+                <li><a class="no-hover"><span class="opacity-50">|</span></a></li>
+                <div>
+                    <li><a><span class="fas fa-code blue-code"></span></a></li>
+                    <li><a><span class="fas fa-laptop-code"></span></a></li>
+                    <li><a><span class="fas fa-minus-circle"></span></a></li>
+                </div>
+                <li><a class="no-hover"><span class="opacity-50">|</span></a></li>
+                <div>
+                    <li><a><span class="fas fa-play"></span></a></li>
+                    <li><a><span class="fas fa-redo-alt"></span></a></li>
+                    <li><a><span class="fas fa-stop-circle"></span></a></li>
+                    <li><a><span class="fas fa-stop"></span></a></li>
+                    <li><a><span class="fas fa-yin-yang"></span></a></li>
+                </div>
+            </ul>
+        </div>
+
+        <!-- Dialog -->
+        <div id="plus-dialg" title="NewAppWizard" class="plus-dialog-contain">
+
+            <div id="tabs">
+                <ul id="first-tabs" class="dialog-tab no-hover">
+                    <li><a class="dialog-main-tabs-width" href="#tabs-1Main">Main</a></li><br>
+                    <li><a class="dialog-main-tabs-width" href="#tabs-2Code-Gen">Code Generation</a></li><br>
+                    <li><a class="dialog-main-tabs-width" href="#tabs-3Ver">Version Control</a></li><br>
+                    <li><a class="dialog-main-tabs-width" href="#tabs-4dbc">Database Connections</a></li><br>
+                    <li><a class="dialog-main-tabs-width" href="#tabs-5Team">Team</a></li><br>
+                    <li><a class="dialog-main-tabs-width" href="#tabs-6Theme">Theme</a></li><br>
+                </ul>
+
+                <!-- Tabs content -->
+
+                <div id="tabs-1Main" class="dialog-tab-content">
+                    <form name="form-name" action="" class="styl-form" method="post">
+                        <label for="name">Name *</label><br>
+                        <input type="text" id="name" name="name" placeholder="Name" required><br><br>
+                        <label for="organization">Organization</label><br>
+                        <input type="text" id="organization" name="organization" placeholder="Organization"><br><br>
+                        <label for="multi-module">Multi Module</label>
+                        <input type="checkbox" class="chck-bx" name="multi-module">
+                    </form>
+                </div>
+
+                <div id="tabs-2Code-Gen" class="dialog-tab-content">
+                    <form action="" class="styl-form">
+                        <label for="tech">Technology Stack</label><br>
+                        <select class="tech" name="teck-select" id="teck-select">
+                            <option value="-" selected="selected">-</option>
+                            <option value="Java-SE" disabled="disabled">Java SE</option>
+                            <option value="spring-boot" disabled="disabled">Spring Boot</option>
+                            <option value="spring-mvc" disabled="disabled">ui.jQuery.js</option>
+                            <option value="Spring-MVC" disabled="disabled">Spring MVC</option>
+                            <option value="SmartCloud-Web">SmartCloud Web</option>
+                        </select>
+                        <br><br>
+                        <label for="manual-persistence">Manual Persistence Names Entry</label>
+                        <input type="checkbox" class="chck-bx" name="manual-persistence"><br>
+                        <label for="manual-primary">Manual Primary Key Input</label>
+                        <input type="checkbox" class="chck-bx" name="manual-primary"><br>
+                        <label for="package-name">Packagename</label><br>
+                        <input class="code-input-w1" type="text" id="package-name" name="package-name"
+                            value="com.app"><br><br>
+                        <label for="show-preview">Show Preview</label>
+                        <input type="checkbox" class="chck-bx" name="show-preview" checked><br>
+                        <label for="hints">Hints</label><br>
+                        <input class="code-input-w2" type="text" id="hints" name="hints" placeholder="hints"><br><br>
+                    </form>
+                </div>
+                <div id="tabs-3Ver" class="dialog-tab-content">
+                    <form action="" class="styl-form">
+                        <label for="git-url">Git URL</label><br>
+                        <input class="code-input-w3" type="text" id="git-ur" name="git-ur"><br><br>
+                        <label for="git-brnach">Git Brnach</label><br>
+                        <input class="code-input-w1" type="text" id="git-brnach" name="git-brnach"><br><br>
+                        <label for="git-username">Git Username</label><br>
+                        <input class="code-input-w1" type="text" id="git-username" name="git-username"><br><br>
+                        <label for="git-token">Git Token</label><br>
+                        <input class="code-input-w1" type="text" id="git-token" name="git-token"><br><br>
+                    </form>
+                </div>
+                <div id="tabs-4dbc" class="dialog-tab-content">
+                    <form action="" class="styl-form">
+                        <label for="database-url">Database URL</label><br>
+                        <input class="code-input-w1" type="text" id="database-url" name="database-url"><br><br>
+                        <label for="username">Username</label><br>
+                        <input class="code-input-w1" type="text" id="username" name="username"><br><br>
+                        <label for="password">Password</label><br>
+                        <input class="code-input-w1" type="text" id="password" name="password"><br><br>
+                    </form>
+                </div>
+                <div id="tabs-5Team" class="dialog-tab-content">
+                    <button class="footer-plus-btn no-border add-team-member-btn" id="btn-add-team-mem" onclick=""><i
+                            class="fas fa-share-square"></i>Add Team
+                        Member</button>
+                    <div id="add-team-mem" class="add-team-container">
+                        <table id="add-team-mem">
+
+                        </table>
+                    </div>
+                </div>
+                <div id="tabs-6Theme">
+                    <div id="tabs2" class="thm-tabs ">
+                        <ul class="box-thm-styl">
+                            <li><a href="#tabs-1fonts">Fonts</a></li>
+                            <li><a href="#tabs-2header">Header</a></li>
+                            <li><a href="#tabs-3body">Body</a></li>
+                            <li><a href="#tabs-4footer">Footer</a></li>
+                            <li><a href="#tabs-5banner">Banner</a></li>
+                            <li><a href="#tabs-6card">Card</a></li>
+                            <li><a href="#tabs-7table">Table</a></li>
+                            <li><a href="#tabs-8input">Input</a></li>
+                        </ul>
+
+                        <!-- theme tabs content -->
+
+                        <div id="tabs-1fonts" class="tab-content-thm">
+                            <form action="" class="left-margin-5">
+                                <label for="main-title">Main Title</label>
+                                <input class="put-tab-header" type="text" id="main-title" name="main-title"><br><br>
+                                <label for="sub-title">Sub Title</label>
+                                <input class="put-tab-header" type="text" id="sub-title" name="sub-title"><br><br>
+                                <label for="sub-sub-title">Sub Sub Title</label>
+                                <input class="put-tab-header" type="text" id="sub-sub-title"
+                                    name="sub-sub-title"><br><br>
+                                <label for="body-font">Body</label>
+                                <input class="put-tab-header" type="text" id="body-font" name="body-font"><br><br>
+                            </form>
+                        </div>
+                        <div id="tabs-2header" class="tab-content-thm">
+                            <form action="" class="left-margin-5">
+                                <label for="background-theme">Background</label>
+                                <input class="put-tab-header2" type="text" id="background-theme"
+                                    name="background-theme"><br><br>
+                                <label for="foreground">Foreground</label>
+                                <input class="put-tab-header2" type="text" id="foreground" name="foreground"><br><br>
+                                <label for="menu-background">Menu Background</label>
+                                <input class="put-tab-header2" type="text" id="menu-background"
+                                    name="menu-background"><br><br>
+                                <label for="menu-foreground">Menu Foreground</label>
+                                <input class="put-tab-header2" type="text" id="menu-foreground"
+                                    name="menu-foreground"><br><br>
+                                <label for="main-menu-background">Main Menu Background</label>
+                                <input class="put-tab-header2" type="text" id="main-menu-background"
+                                    name="main-menu-background"><br><br>
+                                <label for="main-menu-foreground">Main Menu Foreground</label>
+                                <input class="put-tab-header2" type="text" id="main-menu-foreground"
+                                    name="main-menu-foreground"><br><br>
+                            </form>
+                        </div>
+                        <div id="tabs-3body" class="tab-content-thm">
+                            <form action="" class="left-margin-5">
+                                <label for="body-background">Body Background</label>
+                                <input class="put-tab-header" type="text" id="body-background"
+                                    name="body-background"><br><br>
+                                <label for="body-foreground">Body Foreground</label>
+                                <input class="put-tab-header" type="text" id="body-foreground"
+                                    name="body-foreground"><br><br>
+                                <label for="container-backgtound">Container Backgtound</label>
+                                <input class="put-tab-header" type="text" id="container-backgtound"
+                                    name="container-backgtound"><br><br>
+                                <label for="main-content-background">Main Content Background</label>
+                                <input class="put-tab-header" type="text" id="main-content-background"
+                                    name="main-content-background"><br><br>
+                            </form>
+                        </div>
+                        <div id="tabs-4footer" class="tab-content-thm">
+                            <fieldset class="no-border">
+                                <label for="footer-body-background">Body Background</label>
+                                <input class="put-tab-header3" type="text" id="footer-body-background"
+                                    name="footer-body-background">
+                            </fieldset>
+                            <fieldset class="no-border absolute-pos left-margin-70">
+                                <label for="body-foreground">Body Foreground</label>
+                                <input class="put-tab-header3 " type="text" id="body-foreground" name="body-foreground">
+                            </fieldset>
+                        </div>
+                        <div id="tabs-5banner" class="tab-content-thm">
+                            <form action="" class="left-margin-5">
+                                <label for="banner-background">Background</label>
+                                <input class="put-tab-header" type="text" id="banner-background"
+                                    name="banner-background"><br><br>
+                                <label for="banner-foreground">Foreground</label>
+                                <input class="put-tab-header" type="text" id="banner-foreground"
+                                    name="banner-foreground"><br><br>
+                                <label for="banner-image">Image</label>
+                                <input class="put-tab-header" type="text" id="banner-image" name="banner-image"><br><br>
+                            </form>
+                        </div>
+                        <div id="tabs-6card" class="tab-content-thm">
+                            <form action="" class="left-margin-5">
+                                <label for="header-background">Header Background</label>
+                                <input class="put-tab-header2" type="text" id="header-background"
+                                    name="header-background"><br><br>
+                                <label for="header-foreground">Header Foreground</label>
+                                <input class="put-tab-header2" type="text" id="header-foreground"
+                                    name="header-foreground"><br><br>
+                                <label for="card-body-background">Body Background</label>
+                                <input class="put-tab-header2" type="text" id="card-body-background"
+                                    name="card-body-background"><br><br>
+                                <label for="card-body-foreground">Body Foreground</label>
+                                <input class="put-tab-header2" type="text" id="card-body-foreground"
+                                    name="card-body-foreground"><br><br>
+                                <label for="card-footer-background">Footer Background</label>
+                                <input class="put-tab-header2" type="text" id="card-footer-background"
+                                    name="card-footer-background"><br><br>
+                                <label for="card-footer-foreground">Footer Foreground</label>
+                                <input class="put-tab-header2" type="text" id="card-footer-foreground"
+                                    name="card-footer-foreground"><br><br>
+                            </form>
+                        </div>
+                        <div id="tabs-7table" class="tab-content-thm">
+                            <form action="" class="left-margin-5">
+                                <label for="table-header-background">Header Background</label>
+                                <input class="put-tab-header" type="text" id="table-header-background"
+                                    name="table-header-background"><br><br>
+                                <label for="table-header-foreground">Header Foreground</label>
+                                <input class="put-tab-header" type="text" id="table-header-foreground"
+                                    name="table-header-foreground"><br><br>
+                                <label for="even-row-background">Even Row Background</label>
+                                <input class="put-tab-header" type="text" id="even-row-background"
+                                    name="even-row-background"><br><br>
+                                <label for="even-row-foreground">Even Row Foreground</label>
+                                <input class="put-tab-header" type="text" id="even-row-foreground"
+                                    name="even-row-foreground"><br><br>
+                                <label for="odd-row-background">Odd Row Background</label>
+                                <input class="put-tab-header" type="text" id="odd-row-background"
+                                    name="odd-row-background"><br><br>
+                            </form>
+                        </div>
+                        <div id="tabs-8input" class="tab-content-thm">
+                            <form action="" class="left-margin-5">
+                                <fieldset class="no-border">
+                                    <label for="label-background">Label Background</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="label-background"
+                                        name="label-background"><br><br>
+                                    <label for="input-background">Input Background</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="input-background"
+                                        name="input-background"><br><br>
+                                    <label for="button-border-color">Button Border Color</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="button-border-color"
+                                        name="button-border-color"><br><br>
+                                    <label for="button-forground">Button Forground</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="button-forground"
+                                        name="button-forground"><br><br>
+                                    <label for="icon-forground">Icon Forground</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="icon-forground"
+                                        name="icon-forground"><br><br>
+                                    <label for="error-forground">Error Forground</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="error-forground"
+                                        name="error-forground"><br><br>
+                                </fieldset>
+                                <fieldset class="no-border absolute-pos left-margin-70">
+                                    <label for="label-forground">label Forground</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="label-forground"
+                                        name="label-forground"><br><br>
+                                    <label for="input-forground">Input Forground</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="input-forground"
+                                        name="input-forground"><br><br>
+                                    <label for="button-background">Button Background</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="button-background"
+                                        name="button-background"><br><br>
+                                    <label for="icon-background">Icon Background</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="icon-background"
+                                        name="icon-background"><br><br>
+                                    <label for="error-background">Error Background</label>
+                                    <input class="put-tab-header3 put-tab-header2" type="text" id="error-background"
+                                        name="error-background"><br><br>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    <button class="footer-plus-btn no-border create-app-btn" id="btn-create-app" onclick="">Create the
+                        App
+                        Now</button>
+                </div>
+            </div>
+
+            <div class="footer-plus-dialog">
+                <button class="footer-plus-btn no-border" id="btn-back" onclick="back()">Back</button>
+                <button class="footer-plus-btn no-border" id="btn-next" onclick="next()">Next</button>
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <div class="main-left-menu appexplorerCont">
+            <p class="app-exp-Styl">
+                <span class="fas fa-list"></span>
+                Apps Explorer
+            </p>
+            <div id="app-left">
+            </div>
+        </div>
+
+        <!-- Main-->
+        <div class="main-right mainCont">
+            <div id="page-container-after-click">
+                <label class="page-header-right">Page</label>
+                <div id="tabs5" class="thm-tabs2 ">
+                    <ul class="box-thm-styl">
+                        <li class="main-app-tabs no-border"><a href="#tabs-1Fields">Fields</a></li>
+                        <li class="main-app-tabs no-border"><a href="#tabs-2Design">Design</a></li>
+                        <li class="main-app-tabs no-border"><a href="#tabs-3Source-Code">Source Code</a></li>
+                        <li class="main-app-tabs no-border"><a href="#tabs-4Page-Properties">Page Properties</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--   -->
+            <div id="tabs3" class="thm-tabs2 ">
+                <ul class="box-thm-styl">
+                    <li class="main-app-tabs no-border"><a href="#tabs-1app-designer">App Designer</a></li>
+                    <li class="main-app-tabs no-border"><a href="#tabs-2properties">Properties</a></li>
+                </ul>
+
+                <!-- theme tabs content -->
+
+                <div id="tabs-1app-designer" class=" app-designer-container">
+                    <button class="deploy-btn" id="deploy-btn">Deploy</button>
+
+                    <div id="group-grid-container" class="group-grid-container">
+                        <div class="group-grid-item-first">
+                            <div class="new-group-container">
+                                <button id="add-new-group" class="new-group-btn "> <i
+                                        class="fa-solid fa-2xl circle-plus fa-circle-plus"></i> New
+                                    Group</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tabs-2properties" class="properties-container">
+                    <nav class="properties-accordion arrows">
+                        <input type="radio" name="accordion" id="cb1" />
+                        <section class="prop-accordion-box">
+                            <label class="prop-accordion-box-title" for="cb1">Main</label>
+                            <label class="prop-accordion-box-close" for="acc-close"></label>
+                            <div class="prop-accordion-box-content">
+                                <table>
+                                    <form name="form-name2" action="" class="styl-form" method="post">
+                                        <tr>
+                                            <th><label for="name2">Name *</label></th>
+                                            <td><input type="text" id="name2" name="name2" placeholder="Name" required>
+                                            </td>
+                                            <th> <label for="organization">Organization</label></th>
+                                            <td> <input type="text" id="organization" name="organization"
+                                                    placeholder="Organization"></td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="multi-module">Multi Module</label></th>
+                                            <td> <input type="checkbox" class="chck-bx" name="multi-module"></td>
+                                            <th><label for="hidden">Hidden</label></th>
+                                            <td> <input type="checkbox" class="chck-bx" name="hidden"></td>
+                                        </tr>
+                                    </form>
+                                </table>
+                            </div>
+                        </section>
+
+                        <input type="radio" name="accordion" id="cb2" />
+                        <section class="prop-accordion-box">
+                            <label class="prop-accordion-box-title" for="cb2">Code Generation</label>
+                            <label class="prop-accordion-box-close" for="acc-close"></label>
+                            <div class="prop-accordion-box-content">
+                                <table>
+                                    <form action="" class="styl-form">
+                                        <tr>
+                                            <th><label for="tech">Technology Stack</label></th>
+                                            <td><select class="tech" name="teck-select" id="teck-select">
+                                                    <option value="-" selected="selected">-</option>
+                                                    <option value="Java-SE" disabled="disabled">Java SE</option>
+                                                    <option value="spring-boot" disabled="disabled">Spring Boot
+                                                    </option>
+                                                    <option value="spring-mvc" disabled="disabled">ui.jQuery.js
+                                                    </option>
+                                                    <option value="Spring-MVC" disabled="disabled">Spring MVC
+                                                    </option>
+                                                    <option value="SmartCloud-Web">SmartCloud Web</option>
+                                                </select>
+                                            </td>
+                                            <th> <label for="manual-persistence">Manual Persistence Names
+                                                    Entry</label>
+                                            </th>
+                                            <td> <input type="checkbox" class="chck-bx" name="manual-persistence">
+                                            </td>
+                                            <th> <label for="manual-primary">Manual Primary Key Input</label></th>
+                                            <td> <input type="checkbox" class="chck-bx" name="manual-primary"></td>
+                                        </tr>
+                                        <tr>
+                                            <th> <label for="package-name">Packagename</label></th>
+                                            <td> <input class="code-input-w1" type="text" id="package-name"
+                                                    name="package-name" value="com.app"></td>
+                                            <th> <label for="show-preview">Show Preview</label></th>
+                                            <td colspan="3"> <input type="checkbox" class="chck-bx" name="show-preview"
+                                                    checked>
+                                            </td>
+                                        </tr>
+                                    </form>
+                                </table>
+                                <hr>
+                                Hints <input class="code-input-w2" type="text" id="hints" name="hints"
+                                    placeholder="hints">
+                            </div>
+                        </section>
+                        <input type="radio" name="accordion" id="cb3" />
+                        <section class="prop-accordion-box">
+                            <label class="prop-accordion-box-title" for="cb3">User Interface</label>
+                            <label class="prop-accordion-box-close" for="acc-close"></label>
+                            <div class="prop-accordion-box-content">
+                                <table class="tabel-style-100">
+                                    <form action="" class="styl-form">
+                                        <tr>
+                                            <th><label for="">Title</label>
+                                            </th>
+                                            <td><input class="code-input-w1" type="text" id="" name="" value="App1">
+                                            </td>
+                                            <th><label for="">Menu Layout</label></th>
+                                            <td><select class="tech" name="" id="">
+                                                    <option value="-" selected="selected">-</option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                </select></td>
+                                            <th><label for="">Home Layout</label></th>
+                                            <td><select class="tech" name="" id="">
+                                                    <option value="-" selected="selected">-</option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                </select></td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="">Home Layout</label></th>
+                                            <td><select class="tech" name="" id="">
+                                                    <option value="-" selected="selected">-</option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                    <option value=""></option>
+                                                </select>
+                                            </td>
+                                            <th><label for="">Default View Columns</label> </th>
+                                            <td><input class="code-input-w1" type="text" id="" name=""></td>
+                                            <th><label for="">Default View Columns</label></th>
+                                            <td><input class="code-input-w1" type="text" id="" name=""></td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="">Splash Image</label></th>
+                                            <td><input class="code-input-w1" type="text" id="" name=""
+                                                    placeholder="Splash Image">
+                                            </td>
+                                            <th> <label for="">Home Image</label></th>
+                                            <td><input class="code-input-w1" type="text" id="" name=""
+                                                    placeholder="Home Image">
+                                            </td>
+                                            <th><label for="">Background Image</label></th>
+                                            <td><input class="code-input-w1" type="text" id="" name=""
+                                                    placeholder="Background Image"></td>
+                                        </tr>
+                                    </form>
+                                </table>
+                            </div>
+                        </section>
+                        <input type="radio" name="accordion" id="cb4" />
+                        <section class="prop-accordion-box">
+                            <label class="prop-accordion-box-title" for="cb4">Version Control</label>
+                            <label class="prop-accordion-box-close" for="acc-close"></label>
+                            <div class="prop-accordion-box-content">
+                                <table>
+                                    <form action="" class="styl-form">
+                                        <tr>
+                                            <th><label for="git-url">Git URL</label></th>
+                                            <td><input class="code-input-w3" type="text" id="git-ur" name="git-ur">
+                                            </td>
+                                            <th><label for="git-brnach">Git Brnach</label></th>
+                                            <td> <input class="code-input-w1" type="text" id="git-brnach"
+                                                    name="git-brnach"></td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="git-username">Git Username</label></th>
+                                            <td> <input class="code-input-w1" type="text" id="git-username"
+                                                    name="git-username">
+                                            </td>
+                                            <th> <label for="git-token">Git Token</label></th>
+                                            <td> <input class="code-input-w1" type="text" id="git-token"
+                                                    name="git-token"></td>
+                                        </tr>
+                                    </form>
+                                </table>
+                            </div>
+                        </section>
+                        <input type="radio" name="accordion" id="cb5" />
+                        <section class="prop-accordion-box">
+                            <label class="prop-accordion-box-title" for="cb5">Database Connections</label>
+                            <label class="prop-accordion-box-close" for="acc-close"></label>
+                            <div class="prop-accordion-box-content">
+                                <table>
+                                    <form action="" class="styl-form">
+                                        <tr>
+                                            <th class="center-mid" colspan="3"><button class="footer-plus-btn no-border"
+                                                    id="" onclick="">Add
+                                                    Connections</button></th>
+                                        </tr>
+                                        <tr>
+                                            <th class="center-mid"><label for="">Database URL</label></th>
+                                            <th class="center-mid"><label for="">User Name</label></th>
+                                            <th class="center-mid"><label for="">Password</label></th>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </form>
+                                </table>
+                            </div>
+                        </section>
+                        <input type="radio" name="accordion" id="cb6" />
+                        <section class="prop-accordion-box">
+                            <label class="prop-accordion-box-title" for="cb6">Collaboration</label>
+                            <label class="prop-accordion-box-close" for="acc-close"></label>
+                            <div class="prop-accordion-box-content">
+                                <table>
+                                    <form action="" class="styl-form">
+                                        <tr>
+                                            <th class="center-mid" colspan="3"><button class="footer-plus-btn no-border"
+                                                    id="" onclick=""><i class="fas fa-share-square"></i>Share</button>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="3" class="center-mid"><label for="">Email</label></th>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </form>
+                                </table>
+                            </div>
+                        </section>
+                        <input type="radio" name="accordion" id="cb7" />
+                        <section class="prop-accordion-box">
+                            <label class="prop-accordion-box-title" for="cb7">Theme</label>
+                            <label class="prop-accordion-box-close" for="acc-close"></label>
+                            <div class="prop-accordion-box-content">
+                                <div id="tabs4" class="thm-tabs2 ">
+                                    <ul class="box-thm-styl">
+                                        <li><a href="#tabs-1fonts">Fonts</a></li>
+                                        <li><a href="#tabs-2header">Header</a></li>
+                                        <li><a href="#tabs-3body">Body</a></li>
+                                        <li><a href="#tabs-4footer">Footer</a></li>
+                                        <li><a href="#tabs-5banner">Banner</a></li>
+                                        <li><a href="#tabs-6card">Card</a></li>
+                                        <li><a href="#tabs-7table">Table</a></li>
+                                        <li><a href="#tabs-8input">Input</a></li>
+                                    </ul>
+
+                                    <!-- theme tabs content -->
+
+                                    <div id="tabs-1fonts" class="tab-content-thm2">
+                                        <form action="" class="left-margin-5">
+                                            <table class="table-width100">
+                                                <tr>
+                                                    <th> <label for="main-title">Main Title</label></th>
+                                                    <td><input class="code-input-w1" type="text" id="main-title"
+                                                            name="main-title">
+                                                    </td>
+                                                    <th><label for="sub-title">Sub Title</label></th>
+                                                    <td> <input class="code-input-w1" type="text" id="sub-title"
+                                                            name="sub-title">
+                                                    </td>
+                                                    <th><label for="sub-sub-title">Sub Sub Title</label></th>
+                                                    <td><input class="code-input-w1" type="text" id="sub-sub-title"
+                                                            name="sub-sub-title"></td>
+                                                    <th><label for="body-font">Body</label></th>
+                                                    <td> <input class="code-input-w1" type="text" id="body-font"
+                                                            name="body-font">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
+                                    <div id="tabs-2header" class="tab-content-thm2">
+                                        <form action="" class="left-margin-5">
+                                            <table class="table-width100">
+                                                <tr>
+                                                    <th><label for="background-theme">Background</label></th>
+                                                    <td> <input class="put-tab-header2" type="text"
+                                                            id="background-theme" name="background-theme"></td>
+                                                    <th> <label for="foreground">Foreground</label></th>
+                                                    <td><input class="put-tab-header2" type="text" id="foreground"
+                                                            name="foreground"></td>
+                                                    <th> <label for="menu-background">Menu Background</label></th>
+                                                    <td> <input class="put-tab-header2" type="text" id="menu-background"
+                                                            name="menu-background"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th><label for="menu-foreground">Menu Foreground</label></th>
+                                                    <td> <input class="put-tab-header2" type="text" id="menu-foreground"
+                                                            name="menu-foreground"></td>
+                                                    <th><label for="main-menu-background">Main Menu
+                                                            Background</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header2" type="text"
+                                                            id="main-menu-background" name="main-menu-background">
+                                                    </td>
+                                                    <th> <label for="main-menu-foreground">Main Menu
+                                                            Foreground</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header2" type="text"
+                                                            id="main-menu-foreground" name="main-menu-foreground">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
+                                    <div id="tabs-3body" class="tab-content-thm2">
+                                        <form action="" class="left-margin-5">
+                                            <table class="table-width100">
+                                                <tr>
+                                                    <th><label for="body-background">Body Background</label></th>
+                                                    <td> <input class="put-tab-header" type="text" id="body-background"
+                                                            name="body-background"></td>
+                                                    <th> <label for="body-foreground">Body Foreground</label></th>
+                                                    <td> <input class="put-tab-header" type="text" id="body-foreground"
+                                                            name="body-foreground"></td>
+                                                    <th><label for="container-backgtound">Container
+                                                            Backgtound</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header" type="text"
+                                                            id="container-backgtound" name="container-backgtound">
+                                                    </td>
+                                                    <th><label for="main-content-background">Main Content
+                                                            Background</label></th>
+                                                    <td> <input class="put-tab-header" type="text"
+                                                            id="main-content-background" name="main-content-background">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
+                                    <div id="tabs-4footer" class="tab-content-thm2">
+
+                                        <table class="table-width100">
+                                            <tr>
+                                                <th><label for="footer-body-background">Body Background</label></th>
+                                                <td> <input class="put-tab-header3" type="text"
+                                                        id="footer-body-background" name="footer-body-background">
+                                                </td>
+                                                <th> <label for="body-foreground">Body Foreground</label></th>
+                                                <td> <input class="put-tab-header3 " type="text" id="body-foreground"
+                                                        name="body-foreground"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div id="tabs-5banner" class="tab-content-thm2">
+                                        <form action="" class="left-margin-5">
+                                            <table class="table-width100">
+                                                <tr>
+                                                    <th><label for="banner-background">Background</label></th>
+                                                    <td> <input class="put-tab-header" type="text"
+                                                            id="banner-background" name="banner-background"></td>
+                                                    <th><label for="banner-foreground">Foreground</label></th>
+                                                    <td> <input class="put-tab-header" type="text"
+                                                            id="banner-foreground" name="banner-foreground"></td>
+                                                    <th><label for="banner-image">Image</label></th>
+                                                    <td> <input class="put-tab-header" type="text" id="banner-image"
+                                                            name="banner-image"></td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
+                                    <div id="tabs-6card" class="tab-content-thm2">
+                                        <form action="" class="left-margin-5">
+                                            <table class="table-width100">
+                                                <tr>
+                                                    <th> <label for="header-background">Header Background</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header2" type="text"
+                                                            id="header-background" name="header-background"></td>
+                                                    <th> <label for="header-foreground">Header Foreground</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header2" type="text"
+                                                            id="header-foreground" name="header-foreground"></td>
+                                                    <th> <label for="menu-background">Menu Background</label></th>
+                                                    <td> <input class="put-tab-header2" type="text" id="menu-background"
+                                                            name="menu-background"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th> <label for="card-body-background">Body Background</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header2" type="text"
+                                                            id="card-body-background" name="card-body-background">
+                                                    </td>
+                                                    <th rowspan="2"><label for="card-body-foreground">Body
+                                                            Foreground</label>
+                                                    </th>
+                                                    <td rowspan="2"> <input class="put-tab-header2" type="text"
+                                                            id="card-body-foreground" name="card-body-foreground">
+                                                    </td>
+                                                    <th rowspan="2"> <label for="card-footer-background">Footer
+                                                            Background</label>
+                                                    </th>
+                                                    <td rowspan="2"> <input class="put-tab-header2" type="text"
+                                                            id="card-footer-background" name="card-footer-background">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th><label for="card-footer-foreground">Footer
+                                                            Foreground</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header2" type="text"
+                                                            id="card-footer-foreground" name="card-footer-foreground">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
+                                    <div id="tabs-7table" class="tab-content-thm2">
+                                        <form action="" class="left-margin-5">
+                                            <table class="table-width100">
+                                                <tr>
+                                                    <th> <label for="table-header-background">Header
+                                                            Background</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header" type="text"
+                                                            id="table-header-background" name="table-header-background">
+                                                    </td>
+                                                    <th> <label for="table-header-foreground">Header
+                                                            Foreground</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header" type="text"
+                                                            id="table-header-foreground" name="table-header-foreground">
+                                                    </td>
+                                                    <th rowspan="2"> <label for="even-row-background">Even Row
+                                                            Background</label>
+                                                    </th>
+                                                    <td rowspan="2"> <input class="put-tab-header" type="text"
+                                                            id="even-row-background" name="even-row-background">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th> <label for="even-row-foreground">Even Row
+                                                            Foreground</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header" type="text"
+                                                            id="even-row-foreground" name="even-row-foreground">
+                                                    </td>
+                                                    <th><label for="odd-row-background">Odd Row Background</label>
+                                                    </th>
+                                                    <td>
+                                                        <input class="put-tab-header" type="text"
+                                                            id="odd-row-background" name="odd-row-background">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
+                                    <div id="tabs-8input" class="tab-content-thm2">
+                                        <form action="" class="left-margin-5">
+                                            <table class="table-width100">
+                                                <tr>
+                                                    <th><label for="label-background">Label Background</label></th>
+                                                    <td><input class="put-tab-header3 put-tab-header2" type="text"
+                                                            id="label-background" name="label-background"></td>
+                                                    <th> <label for="input-background">Input Background</label></th>
+                                                    <td> <input class="put-tab-header3 put-tab-header2" type="text"
+                                                            id="input-background" name="input-background"></td>
+                                                    <th><label for="button-border-color">Button Border Color</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header3 put-tab-header2" type="text"
+                                                            id="button-border-color" name="button-border-color">
+                                                    </td>
+                                                    <th><label for="button-forground">Button Forground</label></th>
+                                                    <td> <input class="put-tab-header3 put-tab-header2" type="text"
+                                                            id="button-forground" name="button-forground"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th><label for="icon-forground">Icon Forground</label></th>
+                                                    <td><input class="put-tab-header3 put-tab-header2" type="text"
+                                                            id="icon-forground" name="icon-forground"></td>
+                                                    <th> <label for="error-forground">Error Forground</label></th>
+                                                    <td> <input class="put-tab-header3 put-tab-header2" type="text"
+                                                            id="error-forground" name="error-forground"></td>
+                                                    <th><label for="label-forground">label Forground</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header3 put-tab-header2" type="text"
+                                                            id="label-forground" name="label-forground"></td>
+                                                    <th rowspan="2"> <label for="input-forground">Input
+                                                            Forground</label></th>
+                                                    <td rowspan="2"> <input class="put-tab-header3 put-tab-header2"
+                                                            type="text" id="input-forground" name="input-forground">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th> <label for="button-background">Button Background</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header3 put-tab-header2" type="text"
+                                                            id="button-background" name="button-background"></td>
+                                                    <th> <label for="icon-background">Icon Background</label></th>
+                                                    <td> <input class="put-tab-header3 put-tab-header2" type="text"
+                                                            id="icon-background" name="icon-background"></td>
+                                                    <th> <label for="error-background">Error Background</label>
+                                                    </th>
+                                                    <td> <input class="put-tab-header3 put-tab-header2" type="text"
+                                                            id="error-background" name="error-background"></td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <input type="radio" name="accordion" id="cb8" />
+                        <section class="prop-accordion-box">
+                            <label class="prop-accordion-box-title" for="cb8">General</label>
+                            <label class="prop-accordion-box-close" for="acc-close"></label>
+                            <div class="prop-accordion-box-content">
+                                <table>
+                                    <form action="" class="styl-form">
+                                        <tr>
+                                            <th><label for="">UID</label></th>
+                                            <td> <input class="code-input-w1" type="text" id="" name=""></td>
+                                            <th><label for="">Name</label></th>
+                                            <td><input class="code-input-w1" type="text" id="" name="" value="App1">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="">Display Name</label></th>
+                                            <td><input class="code-input-w1" type="text" id="" name=""></td>
+                                            <th rowspan="2"><label for="">Discreption</label> </th>
+                                            <td rowspan="2"><textarea id="" name="" rows="4" cols="20"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="">Summary</label></th>
+                                            <td><textarea id="" name="" rows="4" cols="20"></textarea></td>
+                                        </tr>
+                                    </form>
+                                </table>
+                            </div>
+                        </section>
+                        <input type="radio" name="accordion" id="acc-close" />
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer-->
+        <!-- <div class="main-footer">Footer</div> -->
+    </div>
+    <!--import-->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui-1.13.2/jquery-ui.js"></script>
+    <script src="js/js.js"></script>
+
+</body>
+
+</html>

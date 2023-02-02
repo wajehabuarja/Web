@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Architects</title>
+    <style>
+        html {
+            font-family: "Lucida Sans", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+         @media only screen and (max-width: 599px) {
+
+           
+        }
+
+        .top {
+            position: fixed;
+            width: 100%;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: -8px;
+            padding: 0;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 1px 0px 10px 1px;
+        }
+
+        li .Nright {
+            float: right;
+            margin-right: 25px;
+        }
+
+        li .Nleft {
+            float: left;
+            margin-left: 25px;
+        }
+
+        li a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            font-size: 22px;
+            padding: 12px;
+        }
+
+        li a:hover {
+            background-color: rgb(172, 172, 172);
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .containerH {
+            position: relative;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+        }
+
+        img {
+            vertical-align: middle;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .header {
+            font-size: 20px;
+            color: black;
+        }
+
+        #ptext {
+            border: 2px solid black;
+            display: inline;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .containerProject {
+            margin: 20px;
+            font-size: 22px;
+        }
+
+        .grid-containerproject {
+            display: grid;
+            position: relative;
+            grid-template-columns: auto auto auto auto;
+            justify-content: center;
+            z-index: -1;
+            gap: 10px 10px;
+
+        }
+
+        .img-container {
+            position: relative;
+        }
+
+        .grid-containerproject div {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+
+        }
+
+        #lefttxt {
+            position: relative;
+            text-align: left;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .top-left {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px !important;
+        }
+
+        .item1 {
+            grid-column: 1 / 5;
+        }
+
+        .AboutLeft {
+
+            text-align: left !important;
+            font-size: 15px !important;
+        }
+
+        .aboutName {
+            color: black;
+            font-size: 22px;
+            margin-top: 10px !important;
+        }
+
+        .about2 {
+            color: gray;
+        }
+
+        .Aboutbtn {
+            position: relative;
+            background-color: #f1f1f1;
+            color: black;
+            font-size: 16px;
+            padding: 16px 30px;
+            max-width: 99%;
+            border: none;
+            width: 360px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .Aboutbtn:hover {
+            background-color: grey;
+        }
+
+        .input {
+            padding: 10px;
+            display: block;
+            border: 1px solid #ccc;
+            width: 99%;
+            margin-top: 0px !important;
+            margin-bottom: 16px !important
+        }
+
+        .containerB {
+            padding: 18px;
+        }
+
+        .footer {
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 100px;
+            width: auto;
+            color: white;
+            background-color: black;
+            padding: 0px !important;
+            margin: -8px !important;
+            position: relative;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <ul>
+            <li><a href="" class="Nleft"><b>B R</b>Architects</a></li>
+            <li><a href="" class="Nright">Projects</a></li>
+            <li><a href="" class="Nright">About</a></li>
+            <li><a href="" class="Nright">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="containerH">
+        <div>
+            <img src="images/home.jpg" width="1500" height="800">
+            <div class="header center">
+                <h1><span id="ptext">B R</span> Architects</h1>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <div class="containerH">
+        <div class="containerProject">
+            <div class="grid-containerproject">
+
+                <div class="item1">
+                    <p id="lefttxt">Projects</p>
+                    <hr style="opacity: 10%;">
+                    <br>
+                </div>
+                <div class="img-container"><img src="images/projects/Summer House.jpg">
+                    <div class="top-left">Summer House</div>
+                </div>
+                <div class="img-container"><img src="images/projects/Renovated.jpg">
+                    <div class="top-left pad">Renovated</div>
+                </div>
+                <div class="img-container"><img src="images/projects/Brick House.jpg">
+                    <div class="top-left">Brick House</div>
+                </div>
+                <div class="img-container"><img src="images/projects/Barn House.jpg">
+                    <div class="top-left">Barn House</div>
+                </div>
+                <div class="img-container"><img src="images/projects/Summer House2.jpg">
+                    <div class="top-left">Summer House</div>
+                </div>
+                <div class="img-container"><img src="images/projects/Renovated2.jpg">
+                    <div class="top-left">Renovated</div>
+                </div>
+                <div class="img-container"><img src="images/projects/Brick House2.jpg">
+                    <div class="top-left">Brick House</div>
+                </div>
+                <div class="img-container"><img src="images/projects/Barn House2.jpg">
+                    <div class="top-left">Barn House</div>
+                </div>
+
+                <br>
+                <div class="item1">
+                    <p id="lefttxt">About</p>
+                    <hr style="opacity: 10%;">
+                </div>
+                <div class="item1">
+                    <p id="lefttxt" style="font-size: 16px; margin-top: -10px;">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing
+                        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+
+                <div class="img-container"><img src="images/about/John Doe.jpg">
+                </div>
+                <div class="img-container"><img src="images/about/Jane Doe.jpg">
+                </div>
+                <div class="img-container"><img src="images/about/Mike Ross.jpg">
+                </div>
+                <div class="img-container"><img src="images/about/Dan Star.jpg">
+                </div>
+                <div class="AboutLeft">
+                    <p class="aboutName">John Doe</p>
+                    <p class="about2">CEO & Founder</p>
+                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    </p>
+                    <button class="Aboutbtn">contact</button>
+                </div>
+                <div class="AboutLeft">
+                    <p class="aboutName">Jane Doe</p>
+                    <p class="about2">Architect</p>
+                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    </p>
+                    <button class="Aboutbtn">contact</button>
+                </div>
+                <div class="AboutLeft">
+                    <p class="aboutName">Mike Ross</p>
+                    <p class="about2">Architect</p>
+                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    </p>
+                    <button class="Aboutbtn">contact</button>
+                </div>
+                <div class="AboutLeft">
+                    <p class="aboutName">Dan Star</h1>
+                    <p class="about2">Architect</p>
+                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    </p>
+                    <button class="Aboutbtn">contact</button>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="item1">
+                    <p id="lefttxt">Contact</p>
+                    <hr style="opacity: 10%;">
+                </div>
+                <div class="item1">
+                    <p id="lefttxt" style="font-size: 16px; margin-top: -10px;">
+                        Lets get in touch and talk about your next project.
+                </div>
+
+                <div class="item1"><input type="text" class="input" placeholder="Name"></div>
+                <div class="item1"><input type="text" class="input" placeholder="Email"></div>
+                <div class="item1"><input type="text" class="input" placeholder="Subject"></div>
+                <div class="item1"><input type="text" class="input" placeholder="Comment"></div>
+                <div class="item1 AboutLeft"> <button
+                        style="color: white; background-color:black; padding: 11px 15px; ">SEND MESSAGE</button></div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="containerB">
+        <img src="images/bottom.jpg" width="1500" height="800">
+    </div>
+    <div class="footer">
+        <p>Powered by Wajeh</p>
+    </div>
+</body>
+
+</html>

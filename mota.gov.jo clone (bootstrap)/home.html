@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .carousel-inner img {
+            width: 100%;
+        }
+
+        .backOrange {
+            background-color: orange !important;
+        }
+
+        .v {
+            gap: 5px;
+        }
+
+        .blacktext {
+            color: black !important;
+            top: 30% !important;
+        }
+
+        .whitetext {
+            color: white !important;
+            top: 10% !important;
+            left: 15% !important;
+            text-align: center !important;
+        }
+
+        .heightnav {
+            margin: 5px;
+        }
+
+        .center {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+        }
+
+        .blueBack {
+            background-color: rgb(29, 55, 129);
+        }
+
+        .h5a {
+            height: 150px !important;
+            font-size: 16px !important;
+            color: black;
+            text-align: center !important;
+            padding: 30px 10px !important;
+            display: inline-block;
+        }
+
+
+        .rotateI {
+            transform: rotate(180deg);
+        }
+
+        .squareo {
+            height: 5px;
+            width: 5px;
+            background-color: orange;
+            position: absolute;
+            right: 0;
+            top: 6%;
+
+        }
+
+        h5 {
+            font-size: 15px !important;
+        }
+    </style>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <nav class="navbar bg-dark navbar-dark py-0" style="height: 27px;">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="text-center col-12">
+                    <div class="d-flex justify-content-end text-white">
+                        <ul class="list-group list-group-horizontal">
+                            <button type="button"
+                                class="btn list-group-item backOrange d-inline-flex font-bold py-0 border-left"
+                                style="height:auto;">English</button>
+
+                            <button type="button" class="btn backOrange d-inline-flex font-bold py-0">
+                                <img src="images/search.png" width="20px" height="20px">
+                            </button>
+                            <button type="button" class="btn d-inline-flex font-bold py-0 border-right">
+                                <img src="images/eye.png" width="20px" height="20px">
+                            </button>
+
+                            <button type="button" class="btn btn d-inline-flex font-bold py-0"> <img
+                                    src="images/half-moon.png" width="20px" height="20px">
+                            </button>
+                            <button type="button" class="btn btn d-inline-flex font-bold py-0 border-right"> <img
+                                    src="images/star.png" width="20px" height="20px">
+                            </button>
+
+                            <button type="button" class="btn btn d-inline-flex font-bold py-0"> <img
+                                    src="images/minus.png" width="20px" height="20px">
+                            </button>
+                            <button type="button" class="btn btn d-inline-flex font-bold py-0"> <img
+                                    src="images/plus.png" width="20px" height="20px">
+                            </button>
+                            <button type="button" class="btn btn d-inline-flex font-bold py-0 border-right"> <img
+                                    src="images/reffresh.png" width="20px" height="20px">
+                            </button>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <nav class="navbar bg-white navbar-light py-0 justify-content-end" style="height: 120px;">
+        <div class="container">
+            <div class="row">
+                <div class="d-flex">
+                    <div class="col-12 float-left blacktext">
+                        <div class="container">
+                            <p><button type="button" class="btn btn-link  blacktext"> خارطة الموقع</button></p>
+                            <p>/</p>
+                            <p><button type="button" class="btn btn-link d-inline-flex blacktext"> الاسئلة الأكثر
+                                    تكرارا</button>
+                            </p>
+                            <p>/</p>
+                            <p><button type="button" class="btn btn-link d-inline-flex blacktext">منصة بخدمتكم</button>
+                            </p>
+                            <p>/</p>
+                            <p> <button type="button" class="btn btn-link d-inline-flex blacktext">خدمات
+                                    الموظفين</button></p>
+                            <p>/</p>
+                            <p><button type="button" class="btn btn-link d-inline-flex blacktext">العطاءات</button></p>
+                            <p>/</p>
+                            <p> <button type="button" class="btn btn-link d-inline-flex blacktext">الرئيسية</button></p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="float-right"><img src="images/2020-46.jpg" width="120px" height="120px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar blueBack navbar-dark py-0 sticky-top" style="height: 50px; opacity: 90%;">
+        <div class="container">
+            <div class="row">
+                <div class="d-flex">
+                    <div class="col-12 whitetext">
+                        <div class="container">
+                            <p><button type="button" class="btn btn-link  whitetext">اتصل بنا</button></p>
+                            <p>|</p>
+                            <p><button type="button" class="btn btn-link d-inline-flex whitetext">المركز
+                                    الاعلامي</button>
+                            </p>
+                            <p>|</p>
+                            <p> <button type="button" class="btn btn-link d-inline-flex whitetext">مركز
+                                    المعلومات</button></p>
+                            </p>
+                            <p>|</p>
+                            <p><button type="button" class="btn btn-link d-inline-flex whitetext">الخدمات</button>
+                            <p>|</p>
+                            <p><button type="button" class="btn btn-link d-inline-flex whitetext">مهن السياحة </button>
+                            </p>
+                            <p>|</p>
+                            <p> <button type="button" class="btn btn-link d-inline-flex whitetext">زيارة الاردن</button>
+                            </p>
+                            <p>|</p>
+                            <p> <button type="button" class="btn btn-link d-inline-flex whitetext">عن الوزارة</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="cu" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#cu" data-slide-to="0" class="active"></li>
+            <li data-target="#cu" data-slide-to="1" class=""></li>
+        </ul>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/wadii3.jpg" alt="" width="100%" height="500">
+            </div>
+            <div class="carousel-item">
+                <img src="images/guide.jpg" alt="" width="100%" height="500">
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#cu" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#cu" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+
+                <a href="" class="  border  h5a gg " style="width: 200px;"><img src="images/icon4.png" height="90px"
+                        width="rpx">
+                    <p>الجمعيات المتخصصه</p>
+                </a>
+                <a href="" class="  border h5a" style="width: 200px;"><img src="images/statpic2.png" height="90px"
+                        width="90px">
+                    <p>الاحصائيات</p>
+                </a>
+                <a href="" class="  border h5a" style="width: 200px;"><img src="images/icon2.png" height="90px"
+                        width="90px">
+                    <p>مقدمي الخدمات السياحة</p>
+                </a>
+                <a href="" class="  border h5a" style="width: 200px;"><img src="images/icon1.png" height="90px"
+                        width="90px">
+                    <p>هيئة تنشيط السياحة</p>
+                </a>
+                <br>
+                <a href="" class=" border h5a" style="width: 200px;"><img src="images/icon8.png" height="90px"
+                        width="90px">
+                    <p>المواصلات</p>
+                </a>
+                <a href="" class="  border h5a" style="width: 200px;"><img src="images/icon7.png" height="90px"
+                        width="90px">
+                    <p>رسوم دخول الموقع</p>
+                </a>
+                <a href="" class="  border h5a" style="width: 200px;"><img src="images/icon6.png" height="90px"
+                        width="90px">
+                    <p>معلومات التأشيرة</p>
+                </a>
+                <a href="" class=" border h5a " style="width: 200px;"><img src="images/مسار.png" height="90px"
+                        width="90px">
+                    <p>الاستراتيجيات الوطنية</p>
+                </a>
+            </div>
+
+            <div class="col-3">
+                <div class=" pt-2 h5a" style="display: inline-block;"><a href=""><img
+                            src="images/Screenshot 2022-07-28 141259.png" height="290px"></a> </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center p-2">
+                <h2>أصحاب المهن</h2>
+            </div>
+
+            <div class="card col-6 pt-4 border-0" style="width:100%; height:100%; ">
+                <img src="images/guide.jpg" class="card-img-top" height="320" width="100%">
+                <div class="card-img-overlay text-white text-right">
+                    <div class="container backOrange w-75 float-right" style="opacity: 90%;">
+                        <h4 class="card-title">تأهيل الادلاء السياحيين</h4>
+                        <a href="#" class=" btn backOrange border border-white text-white"><img class="rotateI"
+                                src="images/whitearrow.png" width="20" height="20">
+                            أقرا
+                            المزيد</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-6 pt-4 border-0 " style="width:100%; height:100%; ">
+                <img src="images/image2.png" class="card-img-top" height="320" width="100%">
+                <div class="card-img-overlay text-white text-right ">
+                    <div class="container bg-primary w-75 float-right" style="opacity: 90%;">
+                        <h4 class="card-title">تصنيف المنشأت الفندقيه</h4>
+                        <a href="#" class="btn btn-primary border border-white text-white"><img class="rotateI"
+                                src="images/whitearrow.png" width="20" height="20">
+                            أقرا
+                            المزيد</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center p-2">
+                <h2>اخبار الوزارة</h2>
+            </div>
+            <br>
+            <br>
+            <div class="card col-3 pt-4 border" style="width:100%; height:400px;">
+                <a href="#" class="text-dark"><img src="images/WhatsApp_Image_2022-07-24_at_11.58.59_AM.jpeg"
+                        height="200" width="100%">
+                    <div class="card-img-top text-dark text-right">
+                        <div class="container w-100 float-right" style="opacity: 90%;">
+                            <p style="font-size: 13px;">2022/8/3</p>
+                            <p style="font-size: 13px; font-weight: bold;">ورشة عمل عن السياحة المستدامة في البترا</p>
+                            <hr>
+                            أقرا
+                            المزيد<a href="#" class="btn text-dark"><img class="rotateI backOrange"
+                                    src="images/whitearrow.png" width="20" height="20">
+                            </a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card col-3 pt-4 border" style="width:100%; height:400px;">
+                <a href="#" class="text-dark"><img src="images/WhatsApp_Image_2022-07-23_at_1.38.23_PM.jpeg"
+                        height="200" width="100%">
+                    <div class="card-img-top text-dark text-right">
+                        <div class="container w-100 float-right" style="opacity: 90%;">
+                            <p style="font-size: 13px;">2022/8/3</p>
+                            <p style="font-size: 13px; font-weight: bold;">الأمير الحسن يرعى افتتاح فعاليات المؤتمر
+                                الدولي تاريخ وآثار الأردن في جامعة اليرموك
+                            </p>
+                            <hr>
+                            أقرا
+                            المزيد<a href="#" class="btn text-dark"><img class="rotateI backOrange"
+                                    src="images/whitearrow.png" width="20" height="20">
+                            </a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card col-3 pt-4 border" style="width:100%; height:400px;">
+                <a href="#" class="text-dark"><img src="images/WhatsApp_Image_2022-07-24_at_11.58.59_AM.jpeg"
+                        height="200" width="100%">
+                    <div class="card-img-top text-dark text-right">
+                        <div class="container w-100 float-right" style="opacity: 90%;">
+                            <p style="font-size: 13px;">2022/8/3</p>
+                            <p style="font-size: 13px; font-weight: bold;">الأمير الحسن يرعى افتتاح فعاليات المؤتمر
+                                الدولي تاريخ وآثار الأردن في جامعة اليرموك
+                            </p>
+                            <hr>
+                            أقرا
+                            المزيد<a href="#" class="btn text-dark"><img class="rotateI backOrange"
+                                    src="images/whitearrow.png" width="20" height="20">
+                            </a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card col-3 pt-4 border" style="width:100%; height:400px;">
+                <a href="#" class="text-dark"><img src="images/WhatsApp_Image_2022-07-24_at_11.58.59_AM.jpeg"
+                        height="200" width="100%">
+                    <div class="card-img-top text-dark text-right">
+                        <div class="container w-100 float-right" style="opacity: 90%;">
+                            <p style="font-size: 13px;">2022/8/3</p>
+                            <p style="font-size: 13px; font-weight: bold;">الأمير الحسن يرعى افتتاح فعاليات المؤتمر
+                                الدولي تاريخ وآثار الأردن في جامعة اليرموك
+                            </p>
+                            <hr>
+                            أقرا
+                            المزيد<a href="#" class="btn text-dark"><img class="rotateI backOrange"
+                                    src="images/whitearrow.png" width="20" height="20">
+                            </a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="col-12 text-center"><button type="button " class="btn btn-primary" style="width: 140px;">عرض
+            الكل</button>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="card col-6 pt-4 border-0 text-right pr-5" style="width:100%; height:100%; ">
+                <div>
+                    <div class="col-2 float-left" style="display: inline;">
+                        <img src="images/brown-arrow-left.png" width="20px" height="20px">
+                        <img src="images/brown-arrow-right.png" width="20px" height="20px">
+                    </div>
+                    <h1 class="col-10 float-right">تصفح في الموقع</h1>
+                </div>
+                <br>
+                <div>
+                    <a href="">
+                        <p style="display: inline;" class="text-dark px-2">الانظمة</p>
+                    </a>
+                    <img src="images/announce.png" width="25px" height="25px">
+                    <hr>
+                </div>
+                <br>
+                <div>
+                    <a href="">
+                        <p style="display: inline;" class="text-dark px-2">التعليمات</p>
+                    </a>
+                    <img src="images/announce.png" width="25px" height="25px">
+                    <hr>
+                </div>
+                <br>
+                <div>
+                    <a href="">
+                        <p style="display: inline;" class="text-dark px-2">القرارات</p>
+                    </a>
+                    <img src="images/announce.png" width="25px" height="25px">
+                    <hr>
+                </div>
+            </div>
+            <div class="card col-6 pt-4 border-0 text-right" style="width:100%; height:100%; ">
+                <h1 style="font-weight: bold;">أردننــــــا جنة</h1>
+                <h2>يلــلا معنا ...</h2>
+                <br>
+                <p> أردننا جنة .. و بهواها نتغنى
+                    <br>
+                    <br>
+                    تعرف على ملامح البرنامج الوطني أردننا جنة، من خلال تصفح التجارب الفريدة المصممة لتلبية متعة السياحة
+                    في ربوع الأردن ولكافة أفراد العائلة وبدعم يتجاوز 50٪، أختر وجهتك أو تجربتك واقرأ التفاصيل الكاملة
+                    المدرجة تحت كل تجربة أو ووجهة، واحجز من خلال الاتصال مع احد المكاتب السياحية المعتمدة في البرنامج.
+                </p>
+                <br>
+                <br>
+                <br>
+            </div>
+
+            <div class="col-12 text-center"><button type="button " class="btn btn-primary"
+                    style="width: 240px; height: 50px;">تعرف على برامج اردننا جنة</button>
+            </div>
+
+        </div>
+        <br>
+        <hr>
+    </div>
+
+    <div></div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark blueBack">
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><img src="images/insta-0.png"> <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><img src="images/twitter.png"> <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><img src="images/f.png"> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><img src="images/yy.png"> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><img src="images/whatsapp_icon.png"> <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <a class="navbar-brand" href="#">وسائل التواصل الاجتماعي</a>
+            </ul>
+
+            <span class="navbar-text">
+                <a href="#"> روبط مفيدة | </a>
+                <a href="#">الوظائف</a>
+            </span>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="card col-6 pt-4 border-0 px-5" style="width:100%; height:100%; ">
+                <div class="row ">
+                    <div class="col-6 px-3 py-3"><img src="images/سند.jpg"></div>
+                    <div class="col-6 px-3 py-3"><img src="images/بخدمتكم_لانه_واجبنا.jpg"></div>
+                    <div class="col-6 px-3 py-3"><img src="images/الخطة_الوطنية_الشاملة_لحقوق_الانسان.jpg"></div>
+                    <div class="col-6 px-3 py-3"><img src="images/4-0.png"></div>
+                    <div class="col-6 px-3 py-3"><img src="images/5.png"></div>
+                    <div class="col-6 px-3 py-3"><img src="images/6.jpg"></div>
+                </div>
+            </div>
+            <div class="card col-3 pt-4  border-left-0 border-top-0 border-bottom-0 text-right text-right " style="width:100%; height:100%; ">
+                <h5><span class="squareo"></span>
+                    <p> يدعم إنترنت إكسبلورر 10+, جوجل كروم, فايرفوكس, سفاري
+                    </p>
+                </h5>
+                <h5><span class="squareo" style="top:20%;"></span>
+                    <p>من الأفضل مشاهدة هذا الموقع من خلال شاشة 768 × 1366
+                    </p>
+                </h5>
+                <h5><span class="squareo" style="top:35%;"></span>
+                    <p>البرنامج المطلوب للتصفح: Adobe Reader
+                    </p>
+                </h5>
+                <h5><span class="squareo" style="top:47%;"></span>
+                    <p>عدد زوار الموقع: 1749745
+                    </p>
+                </h5>
+                <h5><span class="squareo" style="top:57%;"></span>
+                    <p>اخر تعديل: 2022/08/07
+                    </p>
+                </h5>
+                <h5><span class="squareo" style="top:67%;"></span>
+                    <p>للابلاغ عن اي مشكلة فنية يرجى الاتصال على مركز الاتصال الوطني هاتف رقم 06-5008080 أو البريد
+                        الالكتروني ncc@nitc.gov.jo
+
+                    </p>
+                </h5>
+                <h5><span class="squareo" style="top:88%;"></span>
+                    <p>من الأحد إلى الخميس، من الساعة 8:30 الى الساعة 3:30
+                    </p>
+                </h5>
+
+
+            </div>
+            <div class="card col-3 pt-4 border-right-0 border-top-0 border-bottom-0 text-right px-1" style="width:100%; height:100%; ">
+                <span class="squareo" style="top: 10%;"></span>
+                <p>معلومات الاتصال
+                </p>
+                <p>الهاتف: +962 6 4603360
+                </p>
+                <p>الفاكس: +962 6 4648465
+                </p>
+                <p>الدوار الثالث - جبل عمـــان
+                </p>
+                <p>من الأحد إلى الخميس، من الساعة 8:30 الى الساعة 3:30
+                </p>
+                <hr class="backOrange my-1">
+                <a href="#" class="btn text-dark text-right"><img class="rotateI backOrange" src="images/whitearrow.png" width="20"
+                        height="20">أقرا المزيد
+                </a>
+                <hr class="backOrange my-1">
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="height: 80px;">
+
+        <div class="collapse navbar-collapse text-white" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    تصميم وتطوير وجيه ابوعرجا
+                </li>
+            </ul>
+
+            <span class="navbar-text" style="font-size: 14px;">
+                <a href="#">سياسة الخصوصية - </a>
+                <a href="#">شروط الاستخدام -</a>
+                <a href="#">اخلاء المسؤولية -</a>
+                <a href="#">حقوق النشر </a>
+                <br>
+                <p class="text-right text-white">جميع الحقوق محفوظة © 2022 وزارة السياحة والاثار
+                </p>
+            </span>
+        </div>
+    </nav>
+
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+
+</html>
